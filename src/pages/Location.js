@@ -30,7 +30,10 @@ const Location = props => {
         <div id="LocationWeather" className="container is-fluid">
           <div className="header">
             <a href="/">Back</a>
-            <h1 className="title">{details.title} <small>{Moment(details.time).format('hh:mm A Z')}</small></h1>
+            <h1 className="title">
+              {details.title} <br/> 
+            </h1>
+            <p><strong>Time:</strong> {Moment(details.time).format('hh:mm A Z')}</p>
             <p><strong>Sunrise:</strong> {Moment(details.sun_rise).format('hh:mm A')} / <strong>Sunset:</strong> {Moment(details.sun_set).format('hh:mm A')}</p>
           </div>
           <div className="columns is-multiline">

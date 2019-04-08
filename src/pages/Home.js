@@ -2,11 +2,14 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import SearchInput from '../components/SearchInput'
 import SearchResult from '../components/SearchResult'
-
+import ErrorModal from '../components/ErrorModal'
 const Home = () => {
   const [locations, setLocations] = useState([])
   const [isLoading, setIsLoading] = useState(false)
-
+  const [hasError, setHasError] = useState({
+    message: '',
+    active: false
+  })
   const searchLocation = query => {
     setIsLoading(true)
     axios.get(`https://www.metaweather.com/api/location/search/?query=${query}`)
@@ -17,7 +20,11 @@ const Home = () => {
         setLocations(res)
       }
     ).catch(function (error) {
-      console.log(error);
+      console.log(error)
+      setHasError({
+        message: error.message,
+        active: true
+      })
     });
   }
   
@@ -40,6 +47,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <ErrorModal hasError={hasError} setHasError={setHasError} setIsLoading={setIsLoading}/>
     </section>
   )
 }

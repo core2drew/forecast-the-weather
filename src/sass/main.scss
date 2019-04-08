@@ -1,0 +1,13 @@
+@import './home';
+@import './search-result';
+@import './location-weather';
+@import './preloader';
+@import './search-input';
+
+html, body {
+  font-size: 14px;
+}
+
+small {
+  font-size: 13px;
+}

@@ -1,0 +1,9 @@
+#SearchResult {
+  max-height: 500px;
+  overflow-y: auto;
+  > .table > tbody > tr:hover {
+    background-color: #00d1b2;
+    color: #fff;
+    cursor: pointer;
+  }
+}
